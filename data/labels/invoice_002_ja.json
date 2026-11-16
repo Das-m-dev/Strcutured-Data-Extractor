@@ -1,0 +1,3 @@
+{"vendor_name": "東京テック株式会社", "invoice_number": "INV-2026-0042", "invoice_date": "2026-10-05", "currency": "JPY", "total": 150000.0,
+ "line_items": [{"description": "センサーユニット", "quantity": 10, "unit_price": 12000},
+                {"description": "取付作業費", "quantity": 1, "unit_price": 30000}]}

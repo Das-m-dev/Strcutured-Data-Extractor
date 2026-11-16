@@ -1,0 +1,4 @@
+{"vendor_name": "Acme Industrial Supplies Ltd.", "invoice_number": "A-1001", "invoice_date": "2026-03-03", "currency": "USD", "total": 85.0,
+ "line_items": [{"description": "Steel bolts M8", "quantity": 200, "unit_price": 0.25},
+                {"description": "Hex nuts M8", "quantity": 200, "unit_price": 0.10},
+                {"description": "Shipping", "quantity": 1, "unit_price": 15.0}]}
