@@ -1,0 +1,12 @@
+INVOICE
+Acme Industrial Supplies Ltd.
+Invoice No: A-1001
+Date: March 3, 2026
+Bill To: Globex Corp
+
+Description        Qty  Unit Price
+Steel bolts M8     200  0.25
+Hex nuts M8        200  0.10
+Shipping           1    15.00
+
+Total Due: USD 85.00
