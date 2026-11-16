@@ -16,10 +16,14 @@ def extract_invoice(text: str) -> ExtractionResult:
     for attempt in range(1, MAX_RETRIES + 1):
         invoice = call_llm(messages)
         if invoice is None:
-            return ExtractionResult(
-                invoice=None, attempts=attempt,
-                warnings=["Model refused or returned nothing."], needs_review=True,
-            )
+            if attempt == MAX_RETRIES:
+                return ExtractionResult(
+                    invoice=None, attempts=attempt,
+                    warnings=["Model returned empty or invalid output."], needs_review=True,
+                )
+            messages.append({"role": "user", "content":
+                "Your output was empty or invalid. Return JSON that matches the schema."})
+            continue
 
         errors = check_business_rules(invoice)
         if not errors:
@@ -28,6 +32,7 @@ def extract_invoice(text: str) -> ExtractionResult:
         messages.append({"role": "assistant", "content": invoice.model_dump_json()})
         messages.append({"role": "user", "content": retry_prompt(errors)})
 
+    # retries exhausted: return best effort
     return ExtractionResult(
         invoice=invoice, attempts=MAX_RETRIES, warnings=errors, needs_review=True
     )
