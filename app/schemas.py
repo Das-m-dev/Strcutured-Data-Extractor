@@ -20,3 +20,4 @@ class ExtractResponse(BaseModel):
     data: Invoice
     model: str
     latency_ms: int
+    cached: bool = False

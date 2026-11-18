@@ -3,6 +3,7 @@ from langsmith import traceable
 from pydantic import ValidationError
 from app.config import settings
 from app.schemas import Invoice
+from app.prompts import SYSTEM_PROMPT
 
 SYSTEM_PROMPT = (
     "Extract invoice fields from the text. Use null for anything not present. "
@@ -25,6 +26,7 @@ async def call_ollama(messages: list[dict]) -> dict:
         "format": Invoice.model_json_schema(),
         "options": {"temperature": 0, "num_ctx": settings.ollama_num_ctx},
         "messages": messages,
+        "keep_alive": settings.ollama_keep_alive,
     }
     async with httpx.AsyncClient(timeout=settings.timeout) as client:
         r = await client.post(f"{settings.ollama_host}/api/chat", json=payload)
