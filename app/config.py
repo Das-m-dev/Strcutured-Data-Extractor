@@ -1,6 +1,6 @@
 from pydantic_settings import BaseSettings, SettingsConfigDict
 from dotenv import load_dotenv
-load_dotenv() 
+load_dotenv() # exposes the langsmith to the langsmith SDK
 
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
@@ -21,5 +21,9 @@ class Settings(BaseSettings):
 
     timeout: float = 120.0
     max_retries: int = 2
+
+    @property
+    def active_model(self) -> str:
+        return self.openai_model if self.llm_provider == "openai" else self.ollama_model
 
 settings = Settings()

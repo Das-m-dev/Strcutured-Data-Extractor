@@ -21,3 +21,6 @@ class ExtractResponse(BaseModel):
     model: str
     latency_ms: int
     cached: bool = False
+    usage: dict = {}
+    warnings: list[str] = []
+    
