@@ -1,0 +1,23 @@
+{
+  "avg_input_tokens": 180.6,
+  "avg_output_tokens": 73.9,
+  "static_tokens": 145,
+  "scenarios": {
+    "gpt-5-nano": {
+      "no_cache": 0.03859,
+      "prompt_cache": 0.03859,
+      "plus_response_cache": 0.027013
+    },
+    "gpt-5-mini": {
+      "no_cache": 0.19295000000000004,
+      "prompt_cache": 0.19295000000000004,
+      "plus_response_cache": 0.13506500000000002
+    },
+    "gpt-5": {
+      "no_cache": 0.96475,
+      "prompt_cache": 0.96475,
+      "plus_response_cache": 0.675325
+    }
+  },
+  "local_electricity_per_1000": 0.3574755555555556
+}
