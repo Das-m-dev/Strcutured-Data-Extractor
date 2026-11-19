@@ -12,3 +12,4 @@ uvicorn[standard]
 httpx
 pydantic-settings
 langsmith>=0.15.0
+tiktoken>=0.14.0
